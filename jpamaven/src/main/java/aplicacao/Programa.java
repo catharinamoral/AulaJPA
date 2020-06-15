@@ -24,8 +24,14 @@ public class Programa {
 		em.persist(p2);
 		em.persist(p3);
 		em.getTransaction().commit(); //confirma as alterações realizadas
-		System.out.println("pronto!");
 		
+		//buscar pessoa no banco de dados pelo id
+		Pessoa p = em.find(Pessoa.class, 2);
+		System.out.println(p);
+		
+		System.out.println("pronto!");
+		em.close();
+		emf.close();
 	}
 
 }
