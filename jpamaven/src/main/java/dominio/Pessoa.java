@@ -2,8 +2,19 @@ package dominio;
 
 import java.io.Serializable;
 
-public class Pessoa implements Serializable{
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+//@Entity indica que a classe é uma entidade de dominio
+//corresponde a uma tabela
+@Entity
+public class Pessoa implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	@Id //indica que é a chave primaria da tabela
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //indica que a chave será gerada automaticamente
 	private Integer id;
 	private String nome;
 	private String email;
